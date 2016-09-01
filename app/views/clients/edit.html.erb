@@ -1,0 +1,68 @@
+
+<h1>Редагувати дані клієнта</h1>
+
+	<%= form_for :client, url: client_path(@client), method: :put do |f| %>
+		<% if @client %>
+		<p>
+		<ul>
+			<% @client.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>			
+		</ul>
+		</p>
+		<% end %>
+
+		<p>
+			ПІБ клієнта <br>
+			<%= f.text_field :client %>	
+		</p>
+
+		<p>
+			Дата народження <br>
+			<%= f.text_field :databird %>	
+		</p>
+
+		<p>
+			Група <br>
+			<%= f.text_field :group %>	
+				
+		</p>
+
+		<p>
+			Телефон <br>
+			<%= f.text_field :phone %>	
+
+		</p>
+
+		<p>
+			E-mail <br>
+			<%= f.text_field :email %>	
+
+		</p>
+
+		<p>
+			Адрес <br>
+			<%= f.text_field :address %>	
+		</p>
+
+		<p>
+			Місто <br>
+			<%= f.text_field :city %>	
+		</p>
+
+		<p>
+			Країна <br>
+			<%= f.text_field :country %>	
+		</p>
+
+		<p>
+			Коментар <br>
+			<%= f.text_area :comment %>	
+		</p>
+
+		<p>
+			<%= f.submit 'Зберегти зміни' %>
+			
+		</p>
+
+	<% end %>

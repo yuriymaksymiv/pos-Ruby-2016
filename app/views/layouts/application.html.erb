@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pos</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+
+<% if user_signed_in? %>
+  
+  <nav class="navbar navbar-default">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Pos Terminal</a>
+    </div>
+
+          <ul class="nav navbar-nav">
+            <li>
+              <%= link_to "Фінанси", clients_path %>
+            </li>
+            
+            <li>
+              <%= link_to "Каталог", clients_path %>
+            </li>
+            <li>
+              <%= link_to "Склад", clients_path %>
+            </li>
+            <li>
+              <%= link_to "Маркетинг", clients_path %>
+            </li>
+            <li>
+              <%= link_to "Налаштування", clients_path %>
+            </li>
+          </ul>
+
+       
+       
+    <ul class="nav navbar-nav navbar-right">
+          
+          <li>
+            <%= link_to "Вихід", destroy_user_session_path, method: :delete %>
+          </li>
+          
+<% else %>
+            <li>
+              <%= link_to "Реєстрація", new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "Вхід", new_user_session_path %>
+            </li>
+          <% end %>
+        </ul>
+    
+    </div>
+    </div>
+    </nav>
+
+
+ 
+
+
+
+
+
+    <div class="container">
+    <%= yield %>
+  </div>
+  </body>
+</html>
